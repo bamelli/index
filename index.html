@@ -1,236 +1,239 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>واجهة تسجيل الدخول</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Tajawal", sans-serif; }
-    body {
-      background: #f3f3f7;
-      min-height: 100vh;
-      color: #2f3442;
-    }
-    .screen {
-      width: 100%;
-      max-width: 430px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 22px 16px 24px;
-      display: flex;
-      flex-direction: column;
-    }
-    .title {
-      text-align: center;
-      font-size: 33px;
-      font-weight: 800;
-      line-height: 1.5;
-      color: #303647;
-      margin-top: 6px;
-      margin-bottom: 24px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 30px;
-      padding: 26px 16px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.03);
-    }
-    .desc {
-      text-align: center;
-      color: #4e5565;
-      font-size: 17px;
-      line-height: 1.9;
-      margin-bottom: 20px;
-      padding: 0 10px;
-    }
-    .field {
-      height: 80px;
-      background: #f4f4f8;
-      border-radius: 26px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      border: 1px solid transparent;
-      margin-bottom: 16px;
-    }
-    .field:focus-within {
-      border-color: #d8dde7;
-      background: #f7f7fa;
-    }
-    .country {
-      width: 116px;
-      height: 100%;
-      background: #efeff4;
-      border-left: 1px solid #e4e7ee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: #8a91a0;
-      font-size: 18px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .flag {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid #ddd;
-      background: linear-gradient(
-        to bottom,
-        #d73838 0%, #d73838 33.33%,
-        #ffffff 33.33%, #ffffff 66.66%,
-        #111111 66.66%, #111111 100%
-      );
-    }
-    input {
-      border: none;
-      outline: none;
-      background: transparent;
-      width: 100%;
-      height: 100%;
-      padding: 0 22px;
-      text-align: right;
-      color: #555d6d;
-      font-size: 21px;
-    }
-    input::placeholder { color: #727a8b; }
-    .password {
-      justify-content: space-between;
-      padding: 0 8px;
-    }
-    .icon-box, .icon-btn {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: transparent;
-      border: none;
-    }
-    .icon-btn { cursor: pointer; }
-    .lock-svg { width: 28px; height: 34px; }
-    .eye-svg { width: 28px; height: 28px; }
-    .spacer {
-      flex: 1;
-      min-height: 420px;
-    }
-    .submit-wrap {
-      margin-top: auto;
-      padding-top: 14px;
-    }
-    .submit-btn {
-      width: 100%;
-      height: 84px;
-      border: none;
-      border-radius: 999px;
-      background: #8ad5c1;
-      color: #fff;
-      font-size: 28px;
-      font-weight: 700;
-      box-shadow: 0 10px 20px rgba(138,213,193,.20);
-      cursor: not-allowed;
-      opacity: .55;
-      transition: .2s ease;
-    }
-    .submit-btn.enabled {
-      opacity: 1;
-      cursor: pointer;
-    }
-    .notice {
-      text-align: center;
-      font-size: 12px;
-      color: #7d8595;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Tajawal",sans-serif}
+
+body{
+  background:#f3f3f7;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  padding:20px 16px 0;
+}
+
+.title{
+  text-align:center;
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:25px;
+  color:#2f3442;
+}
+
+.card{
+  background:#fff;
+  border-radius:30px;
+  padding:25px 15px 20px;
+}
+
+.desc{
+  text-align:center;
+  font-size:17px;
+  color:#555;
+  margin-bottom:20px;
+}
+
+.input-box{
+  height:78px;
+  background:#f5f5f9;
+  border-radius:26px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  margin-bottom:15px;
+}
+
+.country{
+  width:110px;
+  height:100%;
+  background:#f1f1f6;
+  border-left:1px solid #e8e8ee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#8b92a3;
+  font-weight:bold;
+}
+
+.flag{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:linear-gradient(
+    to bottom,
+    #d32f2f 0%,
+    #d32f2f 33%,
+    #fff 33%,
+    #fff 66%,
+    #000 66%,
+    #000 100%
+  );
+}
+
+input{
+  flex:1;
+  border:none;
+  outline:none;
+  background:transparent;
+  padding:0 20px;
+  font-size:20px;
+  text-align:right;
+}
+
+.password{
+  justify-content:space-between;
+  padding:0 10px;
+}
+
+.icon{
+  width:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lock{
+  width:24px;height:24px;border:2px solid #777;border-radius:4px;position:relative;
+}
+.lock:before{
+  content:"";
+  position:absolute;
+  width:14px;height:10px;
+  border:2px solid #777;
+  border-bottom:none;
+  border-radius:10px 10px 0 0;
+  top:-10px;left:50%;transform:translateX(-50%);
+}
+
+.eye{
+  width:26px;height:26px;cursor:pointer;
+}
+
+/* دکمه پایین */
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#f3f3f7;
+  padding:15px;
+}
+
+.btn{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+  display:block;
+  height:75px;
+  border:none;
+  border-radius:999px;
+  background:#cfd4da;
+  color:#fff;
+  font-size:24px;
+  font-weight:700;
+  cursor:not-allowed;
+  transition:0.2s;
+}
+
+/* وقتی فعال شد */
+.btn.active{
+  background:#8bd8c5;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(139,216,197,0.3);
+}
+
+</style>
 </head>
+
 <body>
-  <div class="screen">
-    <h1 class="title">تسجيل الدخول إلى حسابك</h1>
 
-    <div class="card">
-      <p class="desc">
-        يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
-      </p>
+<div class="container">
 
-      <div class="field">
-        <div class="country">
-          <div class="flag"></div>
-          <span>+964</span>
-        </div>
-        <input id="phone" type="text" inputmode="numeric" placeholder="رقم الجوال" />
+  <div class="title">تسجيل الدخول إلى حسابك</div>
+
+  <div class="card">
+
+    <div class="desc">
+      يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
+    </div>
+
+    <div class="input-box">
+      <div class="country">
+        <div class="flag"></div>
+        +964
       </div>
+      <input id="phone" type="text" placeholder="رقم الجوال">
+    </div>
 
-      <div class="field password">
-        <div class="icon-box" aria-hidden="true">
-          <svg class="lock-svg" viewBox="0 0 24 24" fill="none">
-            <path d="M7.5 10V7.8C7.5 5.2 9.55 3 12 3C14.45 3 16.5 5.2 16.5 7.8V10"
-                  stroke="#6F7787" stroke-width="2.1" stroke-linecap="round"/>
-            <rect x="5.2" y="10" width="13.6" height="10.8" rx="2.8"
-                  stroke="#6F7787" stroke-width="2.1" fill="none"/>
-          </svg>
-        </div>
+    <div class="input-box password">
+      <div class="icon"><div class="lock"></div></div>
 
-        <input id="password" type="password" placeholder="كلمة المرور" />
+      <input id="password" type="password" placeholder="كلمة المرور">
 
-        <button class="icon-btn" id="togglePassword" type="button" aria-label="إظهار كلمة المرور">
-          <svg class="eye-svg" viewBox="0 0 24 24" fill="none">
-            <path d="M2 12C3.9 8.7 7.3 6.5 12 6.5C16.7 6.5 20.1 8.7 22 12C20.1 15.3 16.7 17.5 12 17.5C7.3 17.5 3.9 15.3 2 12Z"
-                  stroke="#6F7787" stroke-width="2"/>
-            <circle cx="12" cy="12" r="3" stroke="#6F7787" stroke-width="2"/>
-            <path id="eyeSlash" d="M4 20L20 4" stroke="#6F7787" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </button>
+      <div class="icon">
+        <svg id="eye" class="eye" viewBox="0 0 24 24" fill="none">
+          <path d="M2 12C4 8 8 6 12 6C16 6 20 8 22 12C20 16 16 18 12 18C8 18 4 16 2 12Z" stroke="#777" stroke-width="2"/>
+          <circle cx="12" cy="12" r="3" stroke="#777" stroke-width="2"/>
+          <line id="slash" x1="4" y1="20" x2="20" y2="4" stroke="#777" stroke-width="2"/>
+        </svg>
       </div>
     </div>
 
-    <div class="spacer"></div>
-
-    <div class="submit-wrap">
-      <button id="submitBtn" class="submit-btn" type="button" disabled>تسجيل الدخول</button>
-      <div class="notice">عرض تجريبي فقط — لا يتم إرسال أو حفظ أي بيانات.</div>
-    </div>
   </div>
 
-  <script>
-    const phoneInput = document.getElementById("phone");
-    const passwordInput = document.getElementById("password");
-    const submitBtn = document.getElementById("submitBtn");
-    const togglePassword = document.getElementById("togglePassword");
-    const eyeSlash = document.getElementById("eyeSlash");
+</div>
 
-    let hidden = true;
+<!-- دکمه -->
+<div class="bottom">
+  <button id="btn" class="btn">تسجيل الدخول</button>
+</div>
 
-    function validateForm() {
-      const phoneFilled = phoneInput.value.trim().length > 0;
-      const passwordFilled = passwordInput.value.trim().length > 0;
-      const valid = phoneFilled && passwordFilled;
+<script>
+const phone = document.getElementById("phone");
+const pass = document.getElementById("password");
+const btn = document.getElementById("btn");
+const eye = document.getElementById("eye");
+const slash = document.getElementById("slash");
 
-      submitBtn.disabled = !valid;
-      submitBtn.classList.toggle("enabled", valid);
-    }
+let hidden = true;
 
-    phoneInput.addEventListener("input", validateForm);
-    passwordInput.addEventListener("input", validateForm);
+/* فعال شدن دکمه */
+function check() {
+  if (phone.value.trim() !== "" && pass.value.trim() !== "") {
+    btn.classList.add("active");
+    btn.disabled = false;
+  } else {
+    btn.classList.remove("active");
+    btn.disabled = true;
+  }
+}
 
-    togglePassword.addEventListener("click", function () {
-      hidden = !hidden;
-      passwordInput.type = hidden ? "password" : "text";
-      eyeSlash.style.display = hidden ? "block" : "none";
-      togglePassword.setAttribute(
-        "aria-label",
-        hidden ? "إظهار كلمة المرور" : "إخفاء كلمة المرور"
-      );
-    });
+phone.addEventListener("input", check);
+pass.addEventListener("input", check);
 
-    submitBtn.addEventListener("click", function () {
-      if (!submitBtn.disabled) {
-        alert("هذا نموذج واجهة فقط، ولا يقوم بإرسال أي بيانات.");
-      }
-    });
-  </script>
+/* نمایش رمز */
+eye.onclick = () => {
+  hidden = !hidden;
+  pass.type = hidden ? "password" : "text";
+  slash.style.display = hidden ? "block" : "none";
+};
+</script>
+
 </body>
 </html>
