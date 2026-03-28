@@ -8,110 +8,92 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Tajawal",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Tajawal",sans-serif}
 
 body{
   background:#f3f3f7;
-  min-height:100vh;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 .container{
+  max-width:420px;
+  margin:auto;
   width:100%;
-  max-width:430px;
-  min-height:100vh;
-  margin:0 auto;
+  height:100%;
   display:flex;
   flex-direction:column;
-  padding:20px 16px 18px;
+  padding:20px 16px 0;
 }
 
 .title{
   text-align:center;
-  font-size:33px;
+  font-size:32px;
   font-weight:800;
+  margin-bottom:25px;
   color:#2f3442;
-  line-height:1.5;
-  margin-top:4px;
-  margin-bottom:22px;
 }
 
 .card{
-  background:#ffffff;
+  background:#fff;
   border-radius:30px;
-  padding:28px 16px 22px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.02);
+  padding:25px 15px 20px;
 }
 
 .desc{
   text-align:center;
   font-size:17px;
-  color:#505768;
-  line-height:1.9;
-  margin-bottom:22px;
-  padding:0 10px;
+  color:#555;
+  margin-bottom:20px;
 }
 
 .input-box{
-  width:100%;
-  height:96px; /* کشیده‌تر */
-  background:#f4f4f8;
-  border-radius:28px;
+  height:78px;
+  background:#f5f5f9;
+  border-radius:26px;
   display:flex;
   align-items:center;
   overflow:hidden;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .country{
-  width:122px;
+  width:110px;
   height:100%;
-  background:#f0f0f5;
-  border-left:1px solid #e7e7ee;
+  background:#f1f1f6;
+  border-left:1px solid #e8e8ee;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:10px;
   color:#8b92a3;
-  font-size:20px;
-  font-weight:700;
-  flex-shrink:0;
+  font-weight:bold;
 }
 
 .flag{
-  width:31px;
-  height:31px;
+  width:28px;
+  height:28px;
   border-radius:50%;
-  border:1px solid #dcdcdc;
   background:linear-gradient(
     to bottom,
-    #dc3a35 0%,
-    #dc3a35 33.33%,
-    #ffffff 33.33%,
-    #ffffff 66.66%,
-    #111111 66.66%,
-    #111111 100%
+    #d32f2f 0%,
+    #d32f2f 33%,
+    #fff 33%,
+    #fff 66%,
+    #000 66%,
+    #000 100%
   );
 }
 
 input{
   flex:1;
-  height:100%;
   border:none;
   outline:none;
   background:transparent;
-  padding:0 22px;
-  font-size:21px;
-  color:#596173;
+  padding:0 20px;
+  font-size:20px;
   text-align:right;
-}
-
-input::placeholder{
-  color:#6f7788;
 }
 
 .password{
@@ -120,100 +102,73 @@ input::placeholder{
 }
 
 .icon{
-  width:54px;
-  height:54px;
+  width:50px;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-shrink:0;
 }
 
-/* آیکن قفل */
 .lock{
-  width:25px;
-  height:19px;
-  border:2.2px solid #7b8394;
-  border-radius:5px;
-  position:relative;
+  width:24px;height:24px;border:2px solid #777;border-radius:4px;position:relative;
 }
 .lock:before{
   content:"";
   position:absolute;
-  width:13px;
-  height:10px;
-  border:2.2px solid #7b8394;
+  width:14px;height:10px;
+  border:2px solid #777;
   border-bottom:none;
-  border-radius:12px 12px 0 0;
-  top:-12px;
-  left:50%;
-  transform:translateX(-50%);
+  border-radius:10px 10px 0 0;
+  top:-10px;left:50%;transform:translateX(-50%);
 }
 
-/* آیکن سمت چپ شبیه عکس */
-.headset{
-  position:relative;
-  width:26px;
-  height:20px;
-}
-.headset:before{
-  content:"";
-  position:absolute;
-  width:18px;
-  height:10px;
-  border:2.2px solid #7b8394;
-  border-bottom:none;
-  border-radius:14px 14px 0 0;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-.headset:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(#7b8394,#7b8394) left 1px top 10px / 4px 8px no-repeat,
-    linear-gradient(#7b8394,#7b8394) right 1px top 10px / 4px 8px no-repeat;
+.eye{
+  width:26px;height:26px;cursor:pointer;
 }
 
-/* فاصله تا دکمه پایین */
-.spacer{
-  flex:1;
-  min-height:420px;
-}
-
+/* دکمه پایین */
 .bottom{
-  padding-top:10px;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#f3f3f7;
+  padding:15px;
 }
 
 .btn{
   width:100%;
-  height:84px;
+  max-width:420px;
+  margin:auto;
+  display:block;
+  height:75px;
   border:none;
   border-radius:999px;
-  background:#cfd5d8;
-  color:#ffffff;
-  font-size:28px;
+  background:#cfd4da;
+  color:#fff;
+  font-size:24px;
   font-weight:700;
   cursor:not-allowed;
-  opacity:.75;
-  transition:.2s;
+  transition:0.2s;
 }
 
+/* وقتی فعال شد */
 .btn.active{
-  background:#88d5c1;
-  opacity:1;
+  background:#8bd8c5;
   cursor:pointer;
-  box-shadow:0 10px 18px rgba(136,213,193,.22);
+  box-shadow:0 10px 20px rgba(139,216,197,0.3);
 }
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
+
   <div class="title">تسجيل الدخول إلى حسابك</div>
 
   <div class="card">
+
     <div class="desc">
       يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
     </div>
@@ -221,44 +176,63 @@ input::placeholder{
     <div class="input-box">
       <div class="country">
         <div class="flag"></div>
-        <span>+964</span>
+        +964
       </div>
       <input id="phone" type="text" placeholder="رقم الجوال">
     </div>
 
     <div class="input-box password">
       <div class="icon"><div class="lock"></div></div>
+
       <input id="password" type="password" placeholder="كلمة المرور">
-      <div class="icon"><div class="headset"></div></div>
+
+      <div class="icon">
+        <svg id="eye" class="eye" viewBox="0 0 24 24" fill="none">
+          <path d="M2 12C4 8 8 6 12 6C16 6 20 8 22 12C20 16 16 18 12 18C8 18 4 16 2 12Z" stroke="#777" stroke-width="2"/>
+          <circle cx="12" cy="12" r="3" stroke="#777" stroke-width="2"/>
+          <line id="slash" x1="4" y1="20" x2="20" y2="4" stroke="#777" stroke-width="2"/>
+        </svg>
+      </div>
     </div>
+
   </div>
 
-  <div class="spacer"></div>
+</div>
 
-  <div class="bottom">
-    <button id="btn" class="btn" type="button" disabled>تسجيل الدخول</button>
-  </div>
+<!-- دکمه -->
+<div class="bottom">
+  <button id="btn" class="btn">تسجيل الدخول</button>
 </div>
 
 <script>
 const phone = document.getElementById("phone");
-const password = document.getElementById("password");
+const pass = document.getElementById("password");
 const btn = document.getElementById("btn");
+const eye = document.getElementById("eye");
+const slash = document.getElementById("slash");
 
-function checkInputs() {
-  const ok = phone.value.trim() !== "" && password.value.trim() !== "";
-  btn.disabled = !ok;
-  btn.classList.toggle("active", ok);
+let hidden = true;
+
+/* فعال شدن دکمه */
+function check() {
+  if (phone.value.trim() !== "" && pass.value.trim() !== "") {
+    btn.classList.add("active");
+    btn.disabled = false;
+  } else {
+    btn.classList.remove("active");
+    btn.disabled = true;
+  }
 }
 
-phone.addEventListener("input", checkInputs);
-password.addEventListener("input", checkInputs);
+phone.addEventListener("input", check);
+pass.addEventListener("input", check);
 
-btn.addEventListener("click", function () {
-  if (!btn.disabled) {
-    alert("هذا مجرد نموذج عرض للواجهة.");
-  }
-});
+/* نمایش رمز */
+eye.onclick = () => {
+  hidden = !hidden;
+  pass.type = hidden ? "password" : "text";
+  slash.style.display = hidden ? "block" : "none";
+};
 </script>
 
 </body>
