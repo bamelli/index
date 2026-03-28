@@ -8,72 +8,79 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Tajawal",sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Tajawal",sans-serif;
+}
 
 body{
   background:#f3f3f7;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
 }
 
 .container{
-  max-width:420px;
-  margin:auto;
   width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  padding:20px 16px 0;
+  max-width:430px;
+  margin:0 auto;
+  min-height:100vh;
+  padding:24px 16px 120px;
 }
 
 .title{
   text-align:center;
-  font-size:32px;
+  font-size:30px;
   font-weight:800;
-  margin-bottom:25px;
   color:#2f3442;
+  margin-bottom:22px;
+  line-height:1.5;
 }
 
 .card{
   background:#fff;
-  border-radius:30px;
-  padding:25px 15px 20px;
+  border-radius:28px;
+  padding:22px 14px 18px;
 }
 
 .desc{
   text-align:center;
-  font-size:17px;
+  font-size:15px;
   color:#555;
-  margin-bottom:20px;
+  line-height:1.8;
+  margin-bottom:18px;
 }
 
 .input-box{
-  height:78px;
+  height:64px;              /* کوچیک‌تر شد */
   background:#f5f5f9;
-  border-radius:26px;
+  border-radius:22px;
   display:flex;
   align-items:center;
   overflow:hidden;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .country{
-  width:110px;
+  width:98px;
   height:100%;
   background:#f1f1f6;
   border-left:1px solid #e8e8ee;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:8px;
   color:#8b92a3;
-  font-weight:bold;
+  font-size:16px;
+  font-weight:700;
+  flex-shrink:0;
 }
 
 .flag{
-  width:28px;
-  height:28px;
+  width:26px;
+  height:26px;
   border-radius:50%;
   background:linear-gradient(
     to bottom,
@@ -88,87 +95,100 @@ body{
 
 input{
   flex:1;
+  height:100%;
   border:none;
   outline:none;
   background:transparent;
-  padding:0 20px;
-  font-size:20px;
+  padding:0 18px;
+  font-size:18px;
   text-align:right;
+  color:#444;
+}
+
+input::placeholder{
+  color:#8b92a3;
 }
 
 .password{
   justify-content:space-between;
-  padding:0 10px;
+  padding:0 8px;
 }
 
 .icon{
-  width:50px;
+  width:42px;
   display:flex;
   align-items:center;
   justify-content:center;
+  flex-shrink:0;
 }
 
 .lock{
-  width:24px;height:24px;border:2px solid #777;border-radius:4px;position:relative;
+  width:22px;
+  height:22px;
+  border:2px solid #7c8494;
+  border-radius:4px;
+  position:relative;
 }
+
 .lock:before{
   content:"";
   position:absolute;
-  width:14px;height:10px;
-  border:2px solid #777;
+  width:12px;
+  height:9px;
+  border:2px solid #7c8494;
   border-bottom:none;
   border-radius:10px 10px 0 0;
-  top:-10px;left:50%;transform:translateX(-50%);
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 .eye{
-  width:26px;height:26px;cursor:pointer;
+  width:24px;
+  height:24px;
+  cursor:pointer;
 }
 
-/* دکمه پایین */
 .bottom{
   position:fixed;
-  bottom:0;
   left:0;
+  right:0;
+  bottom:0;
   width:100%;
   background:#f3f3f7;
-  padding:15px;
+  padding:14px 16px 18px;
 }
 
 .btn{
   width:100%;
-  max-width:420px;
-  margin:auto;
+  max-width:430px;
+  margin:0 auto;
   display:block;
-  height:75px;
+  height:72px;
   border:none;
   border-radius:999px;
   background:#cfd4da;
   color:#fff;
-  font-size:24px;
+  font-size:22px;
   font-weight:700;
   cursor:not-allowed;
   transition:0.2s;
 }
 
-/* وقتی فعال شد */
 .btn.active{
   background:#8bd8c5;
   cursor:pointer;
-  box-shadow:0 10px 20px rgba(139,216,197,0.3);
+  box-shadow:0 8px 18px rgba(139,216,197,0.28);
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="container">
-
   <div class="title">تسجيل الدخول إلى حسابك</div>
 
   <div class="card">
-
     <div class="desc">
       يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
     </div>
@@ -194,14 +214,11 @@ input{
         </svg>
       </div>
     </div>
-
   </div>
-
 </div>
 
-<!-- دکمه -->
 <div class="bottom">
-  <button id="btn" class="btn">تسجيل الدخول</button>
+  <button id="btn" class="btn" disabled>تسجيل الدخول</button>
 </div>
 
 <script>
@@ -213,7 +230,6 @@ const slash = document.getElementById("slash");
 
 let hidden = true;
 
-/* فعال شدن دکمه */
 function check() {
   if (phone.value.trim() !== "" && pass.value.trim() !== "") {
     btn.classList.add("active");
@@ -227,7 +243,6 @@ function check() {
 phone.addEventListener("input", check);
 pass.addEventListener("input", check);
 
-/* نمایش رمز */
 eye.onclick = () => {
   hidden = !hidden;
   pass.type = hidden ? "password" : "text";
