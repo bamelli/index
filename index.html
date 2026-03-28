@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تسجيل الدخول</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -16,174 +16,274 @@
     }
 
     body {
-      background: #f4f4f8;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: #f3f3f7;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 420px;
-      margin: auto;
       width: 100%;
-      height: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 20px 16px 0;
+      padding: 18px 16px 24px;
     }
 
     .title {
       text-align: center;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 800;
       color: #2f3442;
-      margin-top: 10px;
-      margin-bottom: 25px;
       line-height: 1.5;
+      margin-top: 8px;
+      margin-bottom: 24px;
     }
 
     .card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 30px;
-      padding: 25px 15px 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+      padding: 26px 16px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
     .desc {
       text-align: center;
       font-size: 17px;
-      color: #505768;
       line-height: 1.9;
+      color: #4c5363;
       margin-bottom: 20px;
+      padding: 0 6px;
     }
 
     .input-box {
-      height: 78px;
-      background: #f5f5f9;
+      height: 82px;
+      width: 100%;
+      background: #f4f4f8;
       border-radius: 26px;
       display: flex;
       align-items: center;
       overflow: hidden;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
+      border: 1px solid transparent;
     }
 
-    .country {
-      width: 110px;
+    .input-box:focus-within {
+      border-color: #d9dde5;
+    }
+
+    .country-box {
+      width: 118px;
       height: 100%;
-      background: #f1f1f6;
-      border-left: 1px solid #e8e8ee;
+      background: #f0f0f5;
+      border-left: 1px solid #e6e8ef;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      font-weight: bold;
-      color: #8b92a3;
+      color: #8a91a1;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
     }
 
     .flag {
-      width: 28px;
-      height: 28px;
+      width: 29px;
+      height: 29px;
       border-radius: 50%;
+      border: 1px solid #d7d7d7;
       background: linear-gradient(
         to bottom,
-        #d32f2f 0%,
-        #d32f2f 33%,
-        #ffffff 33%,
-        #ffffff 66%,
-        #000000 66%,
-        #000000 100%
+        #d83333 0%,
+        #d83333 33.33%,
+        #ffffff 33.33%,
+        #ffffff 66.66%,
+        #151515 66.66%,
+        #151515 100%
       );
     }
 
-    input {
+    .text-input {
       flex: 1;
+      height: 100%;
       border: none;
       outline: none;
       background: transparent;
-      padding: 0 20px;
-      font-size: 20px;
+      padding: 0 22px;
       text-align: right;
-      color: #444;
+      font-size: 21px;
+      color: #434a5a;
     }
 
-    input::placeholder {
-      color: #7a8191;
+    .text-input::placeholder {
+      color: #757d8d;
     }
 
-    .password {
+    .password-box {
+      padding: 0 8px;
       justify-content: space-between;
-      padding: 0 10px;
     }
 
-    .icon {
-      width: 50px;
-      text-align: center;
-      color: #7a8191;
-      font-size: 22px;
+    .icon-btn,
+    .icon-static {
+      width: 54px;
+      height: 54px;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    /* دکمه پایین */
+    .icon-btn {
+      cursor: pointer;
+    }
+
+    .icon-btn:focus {
+      outline: none;
+    }
+
+    .space {
+      flex: 1;
+      min-height: 430px;
+    }
+
     .bottom {
       margin-top: auto;
-      padding: 20px 0 25px;
+      padding-top: 14px;
     }
 
     .btn {
       width: 100%;
-      height: 80px;
+      height: 84px;
       border: none;
       border-radius: 999px;
-      background: #8bd8c5;
-      color: #fff;
-      font-size: 26px;
+      background: #8ad5c1;
+      color: #ffffff;
+      font-size: 27px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(139,216,197,0.25);
+      box-shadow: 0 10px 20px rgba(138,213,193,0.2);
     }
 
     .btn:active {
-      transform: scale(0.98);
+      transform: scale(0.985);
+    }
+
+    /* lock icon */
+    .lock-svg {
+      width: 28px;
+      height: 34px;
+    }
+
+    /* eye icon */
+    .eye-svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (max-width: 420px) {
+      .title {
+        font-size: 30px;
+      }
+
+      .desc {
+        font-size: 16px;
+      }
+
+      .input-box {
+        height: 76px;
+      }
+
+      .text-input {
+        font-size: 19px;
+      }
+
+      .country-box {
+        width: 108px;
+        font-size: 17px;
+      }
+
+      .btn {
+        height: 76px;
+        font-size: 24px;
+      }
+
+      .space {
+        min-height: 360px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="container">
+    <h1 class="title">تسجيل الدخول إلى حسابك</h1>
 
-  <div class="title">
-    تسجيل الدخول إلى حسابك
-  </div>
+    <div class="card">
+      <p class="desc">
+        يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
+      </p>
 
-  <div class="card">
-    <div class="desc">
-      يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
-    </div>
-
-    <!-- شماره -->
-    <div class="input-box">
-      <div class="country">
-        <div class="flag"></div>
-        +964
+      <div class="input-box">
+        <div class="country-box">
+          <div class="flag"></div>
+          <span>+964</span>
+        </div>
+        <input type="text" class="text-input" placeholder="رقم الجوال" />
       </div>
-      <input type="text" placeholder="رقم الجوال">
+
+      <div class="input-box password-box">
+        <div class="icon-static" aria-hidden="true">
+          <!-- قفل شبیه عکس -->
+          <svg class="lock-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 10V7.8C7.5 5.15 9.55 3 12 3C14.45 3 16.5 5.15 16.5 7.8V10" stroke="#6F7787" stroke-width="2.1" stroke-linecap="round"/>
+            <rect x="5.2" y="10" width="13.6" height="10.8" rx="2.8" stroke="#6F7787" stroke-width="2.1" fill="none"/>
+          </svg>
+        </div>
+
+        <input id="passwordInput" type="password" class="text-input" placeholder="كلمة المرور" />
+
+        <button class="icon-btn" id="togglePassword" type="button" aria-label="إظهار كلمة المرور">
+          <!-- eye closed/open handled by JS -->
+          <svg id="eyeIcon" class="eye-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M2 12C3.9 8.7 7.3 6.5 12 6.5C16.7 6.5 20.1 8.7 22 12C20.1 15.3 16.7 17.5 12 17.5C7.3 17.5 3.9 15.3 2 12Z" stroke="#6F7787" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" stroke="#6F7787" stroke-width="2"/>
+            <path id="eyeSlash" d="M4 20L20 4" stroke="#6F7787" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- رمز -->
-    <div class="input-box password">
-      <div class="icon">🔒</div>
-      <input type="password" placeholder="كلمة المرور">
-      <div class="icon">🎧</div>
+    <div class="space"></div>
+
+    <div class="bottom">
+      <button class="btn">تسجيل الدخول</button>
     </div>
-
   </div>
 
-  <!-- دکمه پایین -->
-  <div class="bottom">
-    <button class="btn">تسجيل الدخول</button>
-  </div>
+  <script>
+    const toggleBtn = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("passwordInput");
+    const eyeSlash = document.getElementById("eyeSlash");
 
-</div>
+    let hidden = true;
+
+    toggleBtn.addEventListener("click", function () {
+      hidden = !hidden;
+
+      if (hidden) {
+        passwordInput.type = "password";
+        eyeSlash.style.display = "block";
+        toggleBtn.setAttribute("aria-label", "إظهار كلمة المرور");
+      } else {
+        passwordInput.type = "text";
+        eyeSlash.style.display = "none";
+        toggleBtn.setAttribute("aria-label", "إخفاء كلمة المرور");
+      }
+    });
+  </script>
 
 </body>
 </html>
