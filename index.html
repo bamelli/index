@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تسجيل الدخول إلى حسابك</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -18,278 +16,174 @@
     }
 
     body {
-      background: #f3f3f7;
-      min-height: 100vh;
-      direction: rtl;
-      color: #2f3442;
-    }
-
-    .screen {
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-      min-height: 100vh;
-      padding: 24px 16px 28px;
+      background: #f4f4f8;
+      height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    .top-title {
+    .container {
+      max-width: 420px;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 16px 0;
+    }
+
+    .title {
       text-align: center;
-      font-size: 33px;
+      font-size: 32px;
       font-weight: 800;
-      color: #2e3544;
+      color: #2f3442;
       margin-top: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
       line-height: 1.5;
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 28px 16px 18px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      background: #fff;
+      border-radius: 30px;
+      padding: 25px 15px 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.03);
     }
 
-    .description {
+    .desc {
       text-align: center;
-      color: #4a5160;
       font-size: 17px;
+      color: #505768;
       line-height: 1.9;
-      margin-bottom: 22px;
-      padding: 0 8px;
+      margin-bottom: 20px;
     }
 
-    .input-wrap {
-      margin-bottom: 16px;
-    }
-
-    .field-box {
-      height: 80px;
-      width: 100%;
-      border-radius: 24px;
+    .input-box {
+      height: 78px;
       background: #f5f5f9;
+      border-radius: 26px;
       display: flex;
       align-items: center;
       overflow: hidden;
+      margin-bottom: 15px;
     }
 
-    .country-box {
-      width: 118px;
+    .country {
+      width: 110px;
       height: 100%;
       background: #f1f1f6;
-      border-left: 1px solid #ebebf0;
+      border-left: 1px solid #e8e8ee;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      color: #848b9a;
-      font-size: 18px;
-      font-weight: 700;
-      flex-shrink: 0;
+      font-weight: bold;
+      color: #8b92a3;
     }
 
-    .iraq-flag {
-      width: 30px;
-      height: 30px;
+    .flag {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid #ddd;
       background: linear-gradient(
         to bottom,
-        #e53935 0%,
-        #e53935 33.33%,
-        #ffffff 33.33%,
-        #ffffff 66.66%,
-        #111111 66.66%,
-        #111111 100%
+        #d32f2f 0%,
+        #d32f2f 33%,
+        #ffffff 33%,
+        #ffffff 66%,
+        #000000 66%,
+        #000000 100%
       );
     }
 
-    .iraq-flag::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 58%, rgba(0,0,0,0.03) 100%);
-    }
-
-    .text-input {
+    input {
+      flex: 1;
       border: none;
       outline: none;
       background: transparent;
-      width: 100%;
-      height: 100%;
-      padding: 0 22px;
+      padding: 0 20px;
+      font-size: 20px;
       text-align: right;
-      font-size: 21px;
-      color: #525969;
+      color: #444;
     }
 
-    .text-input::placeholder {
-      color: #666d7d;
+    input::placeholder {
+      color: #7a8191;
     }
 
-    .password-box {
+    .password {
       justify-content: space-between;
-      padding: 0 8px;
+      padding: 0 10px;
     }
 
     .icon {
-      width: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7f8797;
-      font-size: 28px;
-      flex-shrink: 0;
+      width: 50px;
+      text-align: center;
+      color: #7a8191;
+      font-size: 22px;
     }
 
-    .lock-icon {
-      position: relative;
-      width: 24px;
-      height: 18px;
-      border: 2.5px solid #7f8797;
-      border-radius: 5px;
+    /* دکمه پایین */
+    .bottom {
+      margin-top: auto;
+      padding: 20px 0 25px;
     }
 
-    .lock-icon::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 12px;
-      border: 2.5px solid #7f8797;
-      border-bottom: none;
-      border-radius: 10px 10px 0 0;
-      top: -13px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: transparent;
-    }
-
-    .headphone-icon {
-      position: relative;
-      width: 28px;
-      height: 22px;
-    }
-
-    .headphone-icon::before {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 12px;
-      border: 2.5px solid #7f8797;
-      border-bottom: none;
-      border-radius: 14px 14px 0 0;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .headphone-icon::after {
-      content: "";
-      position: absolute;
+    .btn {
       width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background:
-        linear-gradient(#7f8797, #7f8797) left 2px top 11px / 4px 8px no-repeat,
-        linear-gradient(#7f8797, #7f8797) right 2px top 11px / 4px 8px no-repeat;
-      border-radius: 10px;
-    }
-
-    .space {
-      flex: 1;
-      min-height: 420px;
-    }
-
-    .login-btn {
-      width: 100%;
-      height: 84px;
+      height: 80px;
       border: none;
       border-radius: 999px;
-      background: #86d7c2;
-      color: #ffffff;
-      font-size: 28px;
+      background: #8bd8c5;
+      color: #fff;
+      font-size: 26px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(134, 215, 194, 0.18);
+      box-shadow: 0 10px 20px rgba(139,216,197,0.25);
     }
 
-    .login-btn:hover {
-      opacity: 0.96;
-    }
-
-    @media (max-width: 420px) {
-      .top-title {
-        font-size: 29px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .field-box {
-        height: 74px;
-      }
-
-      .text-input {
-        font-size: 19px;
-      }
-
-      .country-box {
-        width: 108px;
-        font-size: 17px;
-      }
-
-      .login-btn {
-        height: 76px;
-        font-size: 24px;
-      }
-
-      .space {
-        min-height: 350px;
-      }
+    .btn:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
+
 <body>
-  <div class="screen">
-    <h1 class="top-title">تسجيل الدخول إلى حسابك</h1>
 
-    <div class="card">
-      <p class="description">
-        يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
-      </p>
+<div class="container">
 
-      <div class="input-wrap">
-        <div class="field-box">
-          <div class="country-box">
-            <div class="iraq-flag"></div>
-            <span>+964</span>
-          </div>
-          <input type="text" class="text-input" placeholder="رقم الجوال">
-        </div>
-      </div>
+  <div class="title">
+    تسجيل الدخول إلى حسابك
+  </div>
 
-      <div class="input-wrap">
-        <div class="field-box password-box">
-          <div class="icon">
-            <div class="lock-icon"></div>
-          </div>
-          <input type="password" class="text-input" placeholder="كلمة المرور">
-          <div class="icon">
-            <div class="headphone-icon"></div>
-          </div>
-        </div>
-      </div>
+  <div class="card">
+    <div class="desc">
+      يرجى إدخال رقم الجوال وكلمة المرور الخاصة بك لتسجيل الدخول إلى حسابك.
     </div>
 
-    <div class="space"></div>
+    <!-- شماره -->
+    <div class="input-box">
+      <div class="country">
+        <div class="flag"></div>
+        +964
+      </div>
+      <input type="text" placeholder="رقم الجوال">
+    </div>
 
-    <button class="login-btn">تسجيل الدخول</button>
+    <!-- رمز -->
+    <div class="input-box password">
+      <div class="icon">🔒</div>
+      <input type="password" placeholder="كلمة المرور">
+      <div class="icon">🎧</div>
+    </div>
+
   </div>
+
+  <!-- دکمه پایین -->
+  <div class="bottom">
+    <button class="btn">تسجيل الدخول</button>
+  </div>
+
+</div>
+
 </body>
 </html>
